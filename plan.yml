@@ -1,0 +1,356 @@
+
+
+# https://onezero.medium.com/bloodchild-802bd34ce721
+
+
+Todo:
+
+
+
+
+Done:
+  
+
+  Pull Notes:
+  - 2020-11-02_todo.yml   # done
+  - proc-ui.md            # done
+  - 2020-10-30_peter.yml  # done
+  - 2020-10-27_todo.yml   # done
+
+
+  Fill Readme:
+  - Title
+  - About
+  - Screenshot
+  - Running
+
+
+
+
+
+
+
+Features:
+
+
+  Generic Scene Saving and Loading:
+
+
+  Scene Relationships:
+  - Parents
+  - Children
+
+
+  Procedural UI Generation:
+    
+    Node Distance:
+    - use a circle
+    
+    Node Direction:
+    - use a vector
+    
+    Node Redraws:
+    - Add/Remove Nodes
+
+    Node Color:
+    - Choose from pallete?
+    - rand?
+      
+    Node Paths:
+    - line segments
+    
+    Node Highlights:
+    - Show selection
+  
+  
+  Navigation:
+  - zoom in/out
+  - panning
+  - pointing/indicating
+  - juicy movement
+
+
+  Juice:
+  - laggy camera/bounce/sway/drift
+  - every movement tweened
+  - visual starfield/reactive background/parallax
+  - light up paths
+
+
+  Effects:
+  - arrange scene screenshots along path
+  - zoom in/out of scene screenshots on load/escape
+  
+
+  Sound/Music:
+  - System Shock 2 Command 3
+  - Natural Selection Ambient
+  - System Shock Cyberspace Arranged
+
+
+
+
+Saving Techniques:
+  
+
+  Differences:
+  - saving entire scene change after change?
+  - saving actions taken in scene? (Logical/JSON)
+  
+
+  Snapshots:
+  - save entire scene?
+  - save logical state (Logical/JSON)?
+  
+
+  Master Saves:
+  - Use Logical Saves (Logical/JSON) with Master Save (Scene)
+  - Apply logical state to master scene
+
+
+
+
+Architecture of Time Tree:
+  
+  
+  Recursion:
+  - Time Trees within Time Tree?
+  - Maybe not great idea
+  - do save-scenes then have their own time-trees?
+
+
+
+
+Crazy Ideas:
+
+
+  Move View not Player:
+  - we are *choosing* where to go first
+  - then we have the player move along the path to do so
+  - or force player to move up/down tree to get to target location
+  - or "bind" player to the "track"
+  - make them have to move to where they want to go
+  - or maybe limit how far they can look
+
+
+  Alter Music:
+  - moving forward in time: play normally
+  - moving backward in time: play backward
+  - stopped: silence/slow
+  - see this:
+    - title:  Added pitch scale property to AudioStreamPlayer, AudioStreamPlayer2D and AudioStreamPlayer3D
+      url:    https://github.com/godotengine/godot/pull/15254
+    - title:  Sound FX and Music -- Godot 3 Tutorial Series
+      url:    https://www.youtube.com/watch?v=S-8IcHucSNg
+  
+
+  Tweened Camera and Player:
+  
+  - title:      Godot Tween Tutorial
+    url:        https://www.youtube.com/watch?v=pFR4DCUeNHo
+    status:     INC
+    relevance:  unk
+
+  - title:      Improved Movement In Godot With Tween Nodes
+    url:        https://www.youtube.com/watch?v=DvOe-RlomD0
+    status:     INC
+    relevance:  HIGH
+  
+  - title:      "Godot Game Juice Tutorial 1: Camera Shake and Frame Freeze"
+    url:        https://www.youtube.com/watch?v=AobjNjzZhmo
+    status:     INC
+    relevance:  HIGH
+  
+  - title:      How to Improve Your Camera for Platformers in Godot 3.1
+    url:        https://www.youtube.com/watch?v=sxtC7hj2ABY
+    status:     INC
+    relevance:  HIGH
+  
+  - title:      How to Make Juicy Camera Shake in Godot with OpenSimplexNoise
+    url:        https://www.youtube.com/watch?v=i2A5diEmX6w
+    status:     INC
+    relevance:  HIGH
+  
+  - title:      "Godot Game Juice Tutorial 2: Tweening and Particles"
+    url:        https://www.youtube.com/watch?v=-MQHFcHegOk
+    status:     INC
+    relevance:  HIGH
+
+
+
+
+
+
+Questions:
+
+
+  How Should things be saved?:
+    
+    Per Scene?:
+    - each scene remembers its children and its parents
+    
+    Per Graph?:
+    - Graph of all scenes is saved
+  
+
+  What should be saved?:
+  - Scene Files?
+  - Resource Files?
+  - Custom JSON?
+
+
+  How should we reference?:
+    
+    Folder-Names:
+    - Where to find the tree
+    - unecessary
+  
+    File-Names:
+    - Where to find in the folder
+    - use this
+    - assumes root name
+
+    Scene-Names:
+
+    Root-Names:
+    - Name of Root Object to target and load
+
+
+
+Notes:
+
+
+  Time Travel Music:
+  - think Cyberspace from System Shock
+  - Esp. with the new System Shock Selected Midi
+  - Maybe slowed down and quieted System Shock 2 tracks?:
+    - System Shock 2 Operations deck (slow): https://www.youtube.com/watch?v=-ebbabJBALw
+  - I envision a dark, dark, dark place
+  - that the place without space
+  - and lines without times
+  - is but cold, shimmering, glittering darkness
+  - against the bright lines of time
+  - but exiting those lines
+  - one shatters the lines, slight
+  - and pollutes the silence with noise
+  - the cold, haunting, echoing tune of time
+  - a clock, grind
+  - an overwhelming mechanic grind, assured, calm, absolute
+  - themes:
+    - System Shock 2 - Command 3 (Remaster): https://www.youtube.com/watch?v=mFTeyFo07q0
+    - too techno
+    - System Shock 2 OST - Command 3: https://www.youtube.com/watch?v=YcaQaoqJ5vs
+    - the original. much better.
+    - hurts to listen to slowed down
+    - some really heavy distortion. shame.
+
+
+  System Shock Minigames:
+  - Note these are needed to open doors/deactivate traps, etc
+  
+
+  System Shock Life System:
+  - Saves/Load, Restore Stations
+  - can become corrupted
+
+
+  Certain Music Video:
+  - See Video/Time as 3D shape unfolding
+
+
+  Train Tracks:
+  - "godot roller coaster"
+  - because we will be moving *along* the tree...
+  - anything with "tracks"
+  - "move along path"
+  - "path follower"
+  - "unity train game"
+
+
+  Proc Gen:
+  
+  - title:  "Procedural Generation in Godot - Part 7: Dungeons (part 2)"
+    url:    http://kidscancode.org/blog/2018/12/godot3_procgen7/
+    status: INC
+
+  - title:  "Procedural Generation in Godot - Part 2: Using Mazes"
+    url:    https://kidscancode.org/blog/2018/09/godot3_procgen2/
+    status: INC
+
+  - title:  Fractal Trees - L-System
+    url:    https://www.reddit.com/r/godot/comments/8t7jo1/fractal_trees_lsystem/
+    status: INC
+  
+  - title:  Godot-L-System-Fractal-Trees
+    url:    https://github.com/tofoz/Godot-L-System-Fractal-Trees
+    status: INC
+
+  - title:  "Code that: L-System"
+    url:    https://www.youtube.com/watch?v=eY9XkJERiG0
+    status: INC
+
+  - title:  forest
+    url:    https://github.com/Terkwood/forest
+    status: INC
+  
+  - title:  Making trees
+    url:    https://docs.godotengine.org/en/stable/tutorials/content/making_trees.html
+    status: INC
+
+  - title:  L System Example
+    url:    https://roelofgielen.com/portfolio/l-system/
+    status: INC
+
+  - title:  
+    url:    https://jsantell.com/l-systems/
+    status: INC
+
+  - title:  
+    url:    https://www.reddit.com/r/godot/comments/hvy1cr/procedural_tree_generation_using_lsystems/
+    status: INC
+
+  - title:  
+    url:    https://github.com/topics/lindenmayer-systems
+    status: INC
+
+  - title:  
+    url:    https://github.com/dilmerv/UnityLSystemEssentials
+    status: INC
+
+
+
+
+Game Design:
+
+- title:  The Fidget Factor | Yahtzee's Dev Diary | S2 EP 10
+  url:    https://www.youtube.com/watch?v=mk_rHekhJaI
+  status: watched
+  type:   [game-dev, talk]
+  policy: public
+  notes:
+  - Very useful, how to make travel actual, and not just "a thing that happens"
+  - make it more involved
+  - compare to time travel?
+  - make analogy of time-travel = space-travel
+  - note use of small mechanics to reinforce major mechanics
+
+- title:  "Ross's Game Dungeon: Clans"
+  url:    https://www.youtube.com/watch?v=QHYH0jFMWSY
+  status: watched
+  type:   [game, review]
+  policy: public
+  notes:
+  - Excellent breakdown of a bad game
+  - Pass on to Cosmic Engine
+  - talk about grind, time travel and differentiating from Save Scumming
+  - Talk about adding Quality of Life enhancements to make the game better between saves
+  - (Essentially, pursue a Prey (2017) style of saves, that arent total)
+  - ((Idea is, some stuff saved separately, allow avoiding repeated content))
+
+
+
+
+
+
+
+
