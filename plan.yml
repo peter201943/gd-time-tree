@@ -422,6 +422,9 @@ Game Design:
 
 misc:
 
+- title:  Arrow Symbols
+  url:    https://unicode-table.com/en/sets/arrow-symbols/
+
 - title:  GDScript exports
   url:    https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_exports.html
 
