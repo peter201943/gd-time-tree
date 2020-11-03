@@ -2,6 +2,7 @@ extends Spatial
 
 
 
+
 """
 Simple Mover of objects to show a game state
 - IS supposed to be as naive as possible about the outside world and assumes absolutely nothing
@@ -9,7 +10,6 @@ Simple Mover of objects to show a game state
 - does not handle reporting
 - does handle requests to exit
 """
-
 
 
 
@@ -33,23 +33,24 @@ Defaults to Player 1
 export(NodePath) var turn_ref = "ball-0"
 onready var turn = get_node(turn_ref)
 
+"""
+WARN (minor kludge)
+Allows pause menu
+"""
+var focus: bool = true
 
 """
 WARN (minor kludge)
-Allows player to think before exiting
+Allow player to travel to Chrono-Space
 """
-export(PackedScene) var pause_scene
-onready var pause: ConfirmationDialog = pause_scene.instance()
-var focus: bool = true
+export(PackedScene) var chrono_ref
 
 
 
 
 
 func _ready():
-	# warning-ignore:return_value_discarded
-	pause.connect("cancelled", self, "_menu_return")
-	get_node("camera").add_child(pause)
+	focus = true
 
 
 
@@ -90,11 +91,6 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_page_up"):
 		"""Escape to the Time Tree"""
 		print("up")
-		
-	if Input.is_action_just_pressed("ui_cancel"):
-		"""Exit the Game"""
-		pause.popup_centered()
-		self.focus = false
 
 
 
@@ -118,10 +114,6 @@ func _turn():
 		return
 
 
-
-
-func _menu_return():
-	focus = true
 
 
 

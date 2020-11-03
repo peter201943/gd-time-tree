@@ -1,0 +1,33 @@
+
+
+
+
+todo:
+
+
+  separate time travel:
+  - make time travel separate from all other components in scene
+  - make "Chrono-Trigger" element for any generic scene
+  - embed as child, listen for "Page-Up" event
+  - also listen for CONTEXT, know when can be activated
+  - handles saving on its own
+  - handles exiting/switching on its own
+  - must be a scene (refs to resources)
+
+
+  way of saving:
+  - log actions
+  - save scene (full)
+
+
+
+
+done:
+
+
+  separate game exit:
+  - make game exit separate from other components
+  - follow same pattern as chrono-trigger
+
+
+

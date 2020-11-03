@@ -1,0 +1,39 @@
+
+
+
+
+files:
+
+- name:   test_1.tscn
+  notes:
+        - this is a *plain*, not thought-out example
+        - note that there are almost no prefab instances
+  lines:  284
+  chars:  9916
+  bytes:  12288
+
+- name:   test_2.tscn
+  notes:
+        - this one we moved stuff out to prefabs
+        - so the rows, columns, floor, camera, music objects are now a single prefab
+        - we also made the balls a prefab instance, and change the material on one
+        - in the "res://test/" we have "board.tscn" and "ball.tscn" to account for this
+        - these have to be loaded in
+        - another possible problem is the program folder ("res://") needs to be constant
+        - so that saves ("user://") can be anywhere and still load those assets
+  lines:  31
+  chars:  979
+  bytes:  4096
+
+
+
+
+
+
+
+
+
+
+
+
+

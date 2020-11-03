@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://chrono-trigger/chrono-trigger.gd" type="Script" id=1]
+
+[node name="chrono-trigger" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Simple Command Pattern way of embedding Chrono-Tree Travel into Any Scene
+
+Handles: [Escaping, Focusing, Saving]"
+}

@@ -420,3 +420,102 @@ Game Design:
 
 
 
+misc:
+
+- title:  GDScript exports
+  url:    https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_exports.html
+
+- title:  List of export hints
+  url:    https://godotengine.org/qa/6099/list-of-export-hints
+
+
+
+
+
+
+chrono elements:
+  
+  
+  chrono-trigger:
+  - listens for whether the user wants to go to the tree or not
+  - isolates it from any other interface
+  
+  
+  chrono-tree:
+  - displays all connected scenes
+  - can go to a particular scene from here
+  
+  
+  chrono-logger:
+  - saves the scene as the user plays through it
+  - also holds scene relationship info
+  - assumes we are saving a new scene EACH TIME
+
+
+  question:
+  - will trigger and logger ever be exculsive?
+  - or must one always be with the other?
+  - it may be better to just comine them into one object
+
+
+
+
+
+
+saving:
+
+
+  scenes:
+  - currently my "test.tscn" has 9,900 characters and is 10 KB in size
+  - an average scene might be... 50 KB at smallest
+  - thats 20 saves per 1 MB
+  - we are looking at A LOT of saves... say 300
+  - 300 * 50 = 15 MB of storage
+  - alternatively, we could try using some LOGICAL representation of the game state
+  - such as a TRES
+  - or objects could self-report what is important
+
+
+  connections:
+  - we could have some master file of all the connections between scenes
+  - each scene could have some object to represent its children
+  - or its parent
+
+
+  resources:
+
+  - title:    "Godot: How to save Game Progress in a Single Resource File"
+    url:      https://www.youtube.com/watch?v=ldKFOGRQDzo
+    status:   watched
+    notes:    
+
+  - title:    "Godot Save Game Tutorial: Save and load using Resources"
+    url:      https://www.youtube.com/watch?v=ML-hiNytIqE
+    status:   UNWATCHED
+    notes:    
+
+
+  tres or tscn:
+  - choose tscn
+  - why?
+  - because regardless of whatever format we use, mindfulness is absolutely required
+  - tres simply requires the creator to explicitly state what they want saved and how they want to save/load it
+  - tscn however handles this automatically, and includes everything
+  - use of tscn requires careful thought!
+  - must turn everything into a prefab and store elsewhere as much as possible
+  - what our tscn in particular is describing is the LAYOUT and VALUES of entities
+  - even a TRES does the exact same thing
+  - but! TSCN opens natively in the editor, ready to go
+  - so you just need to be SMART about how you use it.
+  - also, maybe some function that can detect if an asset stays together/does not change would be useful
+  - so it can automatically export things to prefabs, and simply reference them, rather than constantly copying them
+  - obviously, making significant changes to a prefab can be costly
+  - also important to track dependencies between auto-generated prefabs....
+  - hnnnnggggg
+  - ok, maybe not worth the effort
+  - BUT! If we limit the users ability to significantly alter prefabs, we should be fine
+  - also define these prefabs sooner, and elminate any native resources to the scene
+
+
+
+
