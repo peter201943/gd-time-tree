@@ -220,6 +220,72 @@ Questions:
 Notes:
 
 
+  Godot Videos:
+
+  - title:  Experiments with Procedural Graphics in Godot
+    url:    https://www.youtube.com/watch?v=KB9jHh2qKlc
+    status: NONE
+    notes:  [FX]
+  
+  - title:  How to make better games using Curves in Godot | Game Dev Tutorial 6
+    url:    https://www.youtube.com/watch?v=gHT3jsCEiyA
+    status: NONE
+    notes:  [JUICE]
+  
+  - title:  "Platform movement in Godot: RigidBody2D vs KinematicBody2D tutorial"
+    url:    https://www.youtube.com/watch?v=pnBioV2HkS8
+    status: NONE
+    notes:  [MOVE]
+  
+  - title:  How I Implemented A Railway System in Godot
+    url:    https://www.youtube.com/watch?v=co2CON-WPPQ
+    status: NONE
+    notes:  [MOVE]
+  
+  - title:  How to switch scene using door (portal)? Godot 3 tutorial
+    url:    https://www.youtube.com/watch?v=AxymjihpUi4
+    status: NONE
+    notes:  [SAVE, LOAD]
+  
+  - title:  How to use light2d to hide a character in shadow because it's ugly. Godot lighting 2d tutorial
+    url:    https://www.youtube.com/watch?v=mMFtS6GnLF4&list=PLcgIj8qYyWnEuQUsIu3oP4Ilxbn1ABDHm&index=6
+    status: NONE
+    notes:  [FX]
+  
+
+  Rails Movement:
+  - Dont use path2d
+  - Use coordinates
+  - Use agent
+  - Capture player inout
+  - Store as intentional vector
+  - Compare vector to possible directions
+  - Move towards available targets
+  - Scenes saves as targets
+  - Available targets from possible states and originating state
+
+  Drawing:
+  - Dont use canvas
+  - Use StaticBody2D
+  - Use Circle Radius
+  - Use Direction Vector
+  - Use Random Color
+
+  Movement:
+  - Space (Hold): Start Time Travel (Zoom In)
+  - Enter (Hold): Choose Target (Zoom In)
+  - Wasd: Pan/Direction
+
+  Choosing Direction:
+  - Have Circle Radius around every target
+  - While in radius, set direction out
+  - Play loose with player effect
+
+
+  Lighting along path:
+  - Make it spooky
+
+
   Time Travel Music:
   - think Cyberspace from System Shock
   - Esp. with the new System Shock Selected Midi
