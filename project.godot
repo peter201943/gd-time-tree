@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="wut"
+config/name="Chrono-Tree"
 run/main_scene="res://test/test.tscn"
 config/icon="res://icon.png"
 
