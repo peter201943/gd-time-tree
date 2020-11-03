@@ -431,6 +431,9 @@ misc:
 - title:  List of export hints
   url:    https://godotengine.org/qa/6099/list-of-export-hints
 
+- title:  How to raise an error with a message?
+  url:    https://godotengine.org/qa/29525/how-to-raise-an-error-with-a-message
+
 
 
 
