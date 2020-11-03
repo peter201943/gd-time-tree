@@ -73,7 +73,7 @@ position = Vector2( 528.682, 299.586 )
 rotation = 1.5708
 scale = Vector2( 1.71815, 1.71815 )
 frames = SubResource( 1 )
-frame = 20
+frame = 28
 speed_scale = 6.0
 playing = true
 

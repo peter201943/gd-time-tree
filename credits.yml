@@ -29,6 +29,21 @@ credits:
   files:      hot-springs.ogg
   location:   https://steviasphere.bandcamp.com/album/reality-is-not-a-computer-simulation
 
+- title:      Command 3
+  type:       Music
+  topic:      Cyberpunk
+  source:     System Shock 2
+  creator:    Eric Brosius
+  files:      command-3.ogg
+  released:   2000
+  license:    Unknown
+
+- title:      Animated Starfield
+  type:       Animated Picture
+  creator:    Unknown
+  license:    Unknown
+  released:   Unknown
+  files:      [stars00000.png,"...", stars00085.png]
 
 
 

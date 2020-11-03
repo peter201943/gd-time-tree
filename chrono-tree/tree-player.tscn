@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://chrono-tree/tree-player.gd" type="Script" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -13,6 +15,7 @@ material = SubResource( 2 )
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 speed = 200
+noise = SubResource( 4 )
 
 [node name="camera" type="Camera2D" parent="."]
 

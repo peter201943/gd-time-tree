@@ -5,6 +5,10 @@ extends KinematicBody2D
 
 """
 FIXME (docs missing)
+
+- title:  How to Make Juicy Camera Shake in Godot with OpenSimplexNoise
+  url:    https://www.youtube.com/watch?v=i2A5diEmX6w
+  code:   https://github.com/bramreth/godot_tutorial_content/blob/master/juicy_cam/juicy_camera.gd
 """
 
 
@@ -36,6 +40,28 @@ FIXME (docs missing)
 var focus = true
 
 
+"""
+FIXME (docs missing)
+"""
+export(float, 0.000, 0.099) var zoom_in = 0.004
+export(float, 0.000, 0.099) var zoom_out = 0.001
+var zoom: Vector2 = Vector2(0,0)
+
+
+"""
+FIXME (docs missing)
+"""
+export (OpenSimplexNoise) var noise
+export(float, 0, 1) var trauma = 0.0
+export var max_x = 150
+export var max_y = 150
+export var max_r = 25
+export var time_scale = 150
+export(float, 0, 1) var decay = 0.6
+var time = 0
+
+
+
 
 
 func _ready():
@@ -43,6 +69,13 @@ func _ready():
 	FIXME (docs missing)
 	"""
 	camera.make_current()
+	zoom = camera.zoom
+
+
+
+
+func add_trauma(trauma_in):
+	trauma = clamp(trauma + trauma_in, 0, 1)
 
 
 
@@ -69,7 +102,17 @@ func _process(delta):
 	position.y = clamp(position.y, 0, map_size.y)
 	
 	if Input.is_action_pressed("ui_page_down"):
-		print("ZOOM")
+		camera.zoom -= Vector2(zoom_in, zoom_in)
+		add_trauma(0.03)
+	elif camera.zoom != zoom:
+		camera.zoom += Vector2(zoom_out, zoom_out)
+	
+	time += delta
+	var shake = pow(trauma, 2)
+	camera.offset.x = noise.get_noise_3d(time * time_scale, 0, 0) * max_x * shake
+	camera.offset.y = noise.get_noise_3d(0, time * time_scale, 0) * max_y * shake
+	camera.rotation_degrees = noise.get_noise_3d(0, 0, time * time_scale) * max_r * shake
+	if trauma > 0: trauma = clamp(trauma - (delta * decay), 0, 1)
 	
 	
 	

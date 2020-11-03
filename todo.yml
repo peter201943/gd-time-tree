@@ -15,10 +15,9 @@ todo:
   - must be a scene (refs to resources)
 
 
-  way of saving:
-  - log actions (hard)
-  - save scene (full) (easy)
-  - save res (partial) (less easy, questionable)
+  implement saving:
+  - scene
+  - connections (singleton)
 
 
 
@@ -29,6 +28,12 @@ done:
   separate game exit:
   - make game exit separate from other components
   - follow same pattern as chrono-trigger
+
+
+  way of saving:
+  - log actions (hard)
+  - save scene (full) (easy)
+  - save res (partial) (less easy, questionable)
 
 
 
