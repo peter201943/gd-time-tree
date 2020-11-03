@@ -453,6 +453,9 @@ chrono elements:
   - saves the scene as the user plays through it
   - also holds scene relationship info
   - assumes we are saving a new scene EACH TIME
+  - should have some sort of ACTIONS which it TRACKS
+  - or else actions which need to be recorded should EMIT a SIGNAL
+  - for clarity's sake, probably best to keep this separate from chrono-trigger
 
 
   question:
@@ -483,19 +486,42 @@ saving:
   - we could have some master file of all the connections between scenes
   - each scene could have some object to represent its children
   - or its parent
+  - but this requires the chrono-tree to open EACH SAVE to build the full tree
+  - this could take a long time!
+  - is better if chrono-tree keeps track of relationships
+  - it should get updated each time a new scene is created
 
 
   resources:
 
   - title:    "Godot: How to save Game Progress in a Single Resource File"
     url:      https://www.youtube.com/watch?v=ldKFOGRQDzo
-    status:   watched
-    notes:    
+    status:   done
+    notes:
+    - bad idea to tie saving to scene itself
+    - better to put in a command node
+    - tres file small, good
+    - res even smaller
 
   - title:    "Godot Save Game Tutorial: Save and load using Resources"
     url:      https://www.youtube.com/watch?v=ML-hiNytIqE
-    status:   UNWATCHED
-    notes:    
+    status:   INC
+    notes:
+    - MUCH better infrastructure + example of how to save things
+    - this creates a special object with Inspector interface to actually do things
+  
+  - title:    How to Save a scene at run time ?
+    url:      https://godotengine.org/qa/903/how-to-save-a-scene-at-run-time
+    status:   done
+    notes:
+    - VERY GOOD, README!
+  
+  - title:    What are diffrence between .scn and .tsn !? Which one is better !?
+    url:      https://godotengine.org/qa/5447/what-are-diffrence-between-scn-and-tsn-which-one-is-better
+    status:   done
+    notes:
+    - tscn versus scn
+    - try scn at some point....
 
 
   tres or tscn:
@@ -518,6 +544,39 @@ saving:
   - ok, maybe not worth the effort
   - BUT! If we limit the users ability to significantly alter prefabs, we should be fine
   - also define these prefabs sooner, and elminate any native resources to the scene
+
+
+  our test case:
+  - just needs to know 3 things
+  - black ball position:  Vector3
+  - white ball position:  Vector3
+  - who's turn it is:     NodePath
+
+
+
+
+
+
+
+saving connections:
+
+
+  scene:
+  - saves stuff inside itself
+  - save to a hash (probably just an integer)
+
+
+  tree:
+  - builds a complete map of all connections
+  - must update/add/remove these
+  - must build ui from these
+  - this can be a singleton, always running in the background
+  - then when chrono-tree is called, we build it from this
+  - other advantage is its just FileRefs and NodePaths
+  - so small Scene to save as result
+
+
+
 
 
 

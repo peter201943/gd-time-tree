@@ -8,6 +8,8 @@ files:
   notes:
         - this is a *plain*, not thought-out example
         - note that there are almost no prefab instances
+        - bad idea, is easiest and laziest option
+        - consequently, also the biggest
   lines:  284
   chars:  9916
   bytes:  12288
@@ -21,9 +23,31 @@ files:
         - these have to be loaded in
         - another possible problem is the program folder ("res://") needs to be constant
         - so that saves ("user://") can be anywhere and still load those assets
+        - requires creator to pay attention to what can be turned into a prefab
+        - does not require any code
   lines:  31
   chars:  979
   bytes:  4096
+
+- name:   test_3.tres
+  notes:
+        - this just saves particular variables
+        - did not bother to actually try implementing this
+        - looks like the following
+        - |
+          [gd_resource "name" "steps" "class"]
+
+          [resource]
+          black_ball = Vector2( -1 , 2 , -3 )
+          white_ball = Vector2( -3 , 2 , 5 )
+          turn = NodePath("ball-0")
+        - requires the most work to make happen
+        - requires custom loader/savers
+        - requires each scene/entity to have its own saver, loader, and stuff to save
+        - essentially requires a coder to always be present to make this work
+  lines:  6
+  chars:  150
+  bytes:  200
 
 
 
