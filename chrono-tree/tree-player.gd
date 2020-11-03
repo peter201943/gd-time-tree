@@ -9,6 +9,10 @@ FIXME (docs missing)
 - title:  How to Make Juicy Camera Shake in Godot with OpenSimplexNoise
   url:    https://www.youtube.com/watch?v=i2A5diEmX6w
   code:   https://github.com/bramreth/godot_tutorial_content/blob/master/juicy_cam/juicy_camera.gd
+
+- title:  How to switch scene using door (portal)? Godot 3 tutorial
+  url:    https://www.youtube.com/watch?v=AxymjihpUi4
+  code:   https://github.com/rfiedorowicz/godot_portal_tutorial/blob/master/scenes/Door.gd
 """
 
 

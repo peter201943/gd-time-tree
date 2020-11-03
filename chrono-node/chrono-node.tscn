@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://chrono-node/chrono-node.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.141176, 0.937255, 0.341176, 1 )
+
+[sub_resource type="SphereMesh" id=3]
+material = SubResource( 2 )
+
+[node name="chrono-node" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
+scale = Vector2( 9.20433, 9.20433 )
+mesh = SubResource( 3 )

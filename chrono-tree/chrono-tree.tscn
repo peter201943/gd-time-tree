@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://chrono-tree/command-3.ogg" type="AudioStream" id=1]
 [ext_resource path="res://chrono-tree/stars/stars00020.png" type="Texture" id=2]
@@ -39,6 +39,8 @@
 [ext_resource path="res://chrono-tree/stars/stars00034.png" type="Texture" id=37]
 [ext_resource path="res://chrono-tree/tree-player.tscn" type="PackedScene" id=38]
 [ext_resource path="res://pause/pause.tscn" type="PackedScene" id=39]
+[ext_resource path="res://test/test.tscn" type="PackedScene" id=40]
+[ext_resource path="res://chrono-node/chrono-node.tscn" type="PackedScene" id=41]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -73,7 +75,7 @@ position = Vector2( 528.682, 299.586 )
 rotation = 1.5708
 scale = Vector2( 1.71815, 1.71815 )
 frames = SubResource( 1 )
-frame = 28
+frame = 34
 speed_scale = 6.0
 playing = true
 
@@ -83,3 +85,7 @@ map_ref = NodePath("../world")
 
 [node name="pause" parent="." instance=ExtResource( 39 )]
 context_ref = NodePath("../player")
+
+[node name="chrono-node" parent="." instance=ExtResource( 41 )]
+position = Vector2( 369.298, 286.395 )
+scene = ExtResource( 40 )
