@@ -87,10 +87,6 @@ func _process(_delta):
 		"""Move Down"""
 		turn.translate(Vector3(0,0,2))
 		_turn()
-		
-	if Input.is_action_pressed("ui_page_up"):
-		"""Escape to the Time Tree"""
-		print("up")
 
 
 

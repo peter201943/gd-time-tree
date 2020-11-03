@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://chrono-tree/command-3.ogg" type="AudioStream" id=1]
 [ext_resource path="res://chrono-tree/stars/stars00020.png" type="Texture" id=2]
@@ -37,6 +37,8 @@
 [ext_resource path="res://chrono-tree/stars/stars00030.png" type="Texture" id=35]
 [ext_resource path="res://chrono-tree/stars/stars00033.png" type="Texture" id=36]
 [ext_resource path="res://chrono-tree/stars/stars00034.png" type="Texture" id=37]
+[ext_resource path="res://chrono-tree/tree-player.tscn" type="PackedScene" id=38]
+[ext_resource path="res://pause/pause.tscn" type="PackedScene" id=39]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -53,17 +55,31 @@ stream = ExtResource( 1 )
 pitch_scale = 0.81
 autoplay = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="world" type="Container" parent="."]
+margin_right = 1000.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="back" type="ParallaxBackground" parent="CanvasLayer"]
+[node name="background" type="CanvasLayer" parent="world"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/back"]
+[node name="back" type="ParallaxBackground" parent="world/background"]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/back/ParallaxLayer"]
+[node name="layer" type="ParallaxLayer" parent="world/background/back"]
+
+[node name="stars" type="AnimatedSprite" parent="world/background/back/layer"]
 position = Vector2( 528.682, 299.586 )
 rotation = 1.5708
 scale = Vector2( 1.71815, 1.71815 )
 frames = SubResource( 1 )
-frame = 34
+frame = 20
 speed_scale = 6.0
 playing = true
+
+[node name="player" parent="." instance=ExtResource( 38 )]
+position = Vector2( 584.068, 327.279 )
+map_ref = NodePath("../world")
+
+[node name="pause" parent="." instance=ExtResource( 39 )]
+context_ref = NodePath("../player")

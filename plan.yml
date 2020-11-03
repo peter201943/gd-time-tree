@@ -597,6 +597,13 @@ saving connections:
     url:    https://www.youtube.com/watch?v=yLbqimzD94A
     status: INC
     notes:
+  
+  - title:  5 Ways to Split or Break GIF Animation Into Individual Frames
+    url:    https://www.raymond.cc/blog/split-or-break-gif-animation-into-individual-frames/
+    status: done
+    notes:
+    - check the ffmpeg instructions
+    - very useful
 
 
 
