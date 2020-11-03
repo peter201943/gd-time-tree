@@ -574,8 +574,29 @@ saving connections:
   - then when chrono-tree is called, we build it from this
   - other advantage is its just FileRefs and NodePaths
   - so small Scene to save as result
+  - ACTUALLY!
+  - we dont need NodePath!
+  - we just need to add things as children!
+  - which means the logger in each scene needs to know:
+    - where to save scene (easy)
+    - update the time-tree relationships (instantiate new "Save", set "File" to our save, add as child to last save)
 
 
+  resources:
+
+  # 2020-11-03T15:41:00: This is where I last left off
+  # Finish Watching this (03:11): https://www.youtube.com/watch?v=AxymjihpUi4
+  # Finish Reading this: https://www.youtube.com/results?search_query=godot+singleton
+  
+  - title:  Change scenes manually
+    url:    https://docs.godotengine.org/en/stable/tutorials/misc/change_scenes_manually.html
+    status: INC
+    notes:
+  
+  - title:  "Godot Beginner Tutorial 12: Singleton"
+    url:    https://www.youtube.com/watch?v=yLbqimzD94A
+    status: INC
+    notes:
 
 
 

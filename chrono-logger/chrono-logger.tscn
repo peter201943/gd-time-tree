@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://chrono-logger/chrono-logger.gd" type="Script" id=1]
+
+[node name="chrono-logger" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Saves Stuff:
+- Ontology of Scene (who it came from)
+- Contents of Scene (what is in it)"
+}
