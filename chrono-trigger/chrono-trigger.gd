@@ -89,7 +89,9 @@ func _process(_delta):
 	
 	if held_period >= confirm_period:
 		"""Escape to the Time Tree!"""
-		pass # FIXME (imp missing)
+		var error = get_tree().change_scene_to(chrono_tree_ref)
+		if error != OK:
+			push_error("Could not load Chrono-Tree!")
 
 
 
