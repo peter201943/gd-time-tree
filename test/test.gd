@@ -39,12 +39,6 @@ Allows pause menu
 """
 var focus: bool = true
 
-"""
-WARN (minor kludge)
-Allow player to travel to Chrono-Space
-"""
-export(PackedScene) var chrono_ref
-
 
 
 
