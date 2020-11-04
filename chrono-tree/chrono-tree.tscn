@@ -56,8 +56,8 @@ pitch_scale = 0.81
 autoplay = true
 
 [node name="world" type="Container" parent="."]
-margin_right = 1000.0
-margin_bottom = 600.0
+margin_right = 3300.0
+margin_bottom = 2400.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -67,13 +67,110 @@ __meta__ = {
 [node name="back" type="ParallaxBackground" parent="world/background"]
 
 [node name="layer" type="ParallaxLayer" parent="world/background/back"]
+position = Vector2( 1199.32, 905.577 )
 
 [node name="stars" type="AnimatedSprite" parent="world/background/back/layer"]
 position = Vector2( 528.682, 299.586 )
 rotation = 1.5708
 scale = Vector2( 1.71815, 1.71815 )
 frames = SubResource( 1 )
-frame = 34
+frame = 31
+speed_scale = 6.0
+playing = true
+
+[node name="layer2" type="ParallaxLayer" parent="world/background/back"]
+position = Vector2( 2508.44, 905.577 )
+
+[node name="stars" type="AnimatedSprite" parent="world/background/back/layer2"]
+position = Vector2( 528.682, 299.586 )
+rotation = 1.5708
+scale = Vector2( 1.71815, 1.71815 )
+frames = SubResource( 1 )
+frame = 31
+speed_scale = 6.0
+playing = true
+
+[node name="layer3" type="ParallaxLayer" parent="world/background/back"]
+position = Vector2( 1199.32, 1824.48 )
+
+[node name="stars" type="AnimatedSprite" parent="world/background/back/layer3"]
+position = Vector2( 528.682, 299.586 )
+rotation = 1.5708
+scale = Vector2( 1.71815, 1.71815 )
+frames = SubResource( 1 )
+frame = 30
+speed_scale = 6.0
+playing = true
+
+[node name="layer4" type="ParallaxLayer" parent="world/background/back"]
+position = Vector2( -109.796, 905.577 )
+
+[node name="stars" type="AnimatedSprite" parent="world/background/back/layer4"]
+position = Vector2( 528.682, 299.586 )
+rotation = 1.5708
+scale = Vector2( 1.71815, 1.71815 )
+frames = SubResource( 1 )
+frame = 29
+speed_scale = 6.0
+playing = true
+
+[node name="layer5" type="ParallaxLayer" parent="world/background/back"]
+position = Vector2( 1194.29, -18.3583 )
+
+[node name="stars" type="AnimatedSprite" parent="world/background/back/layer5"]
+position = Vector2( 528.682, 299.586 )
+rotation = 1.5708
+scale = Vector2( 1.71815, 1.71815 )
+frames = SubResource( 1 )
+frame = 28
+speed_scale = 6.0
+playing = true
+
+[node name="layer6" type="ParallaxLayer" parent="world/background/back"]
+position = Vector2( 2498.37, -18.3583 )
+
+[node name="stars" type="AnimatedSprite" parent="world/background/back/layer6"]
+position = Vector2( 528.682, 299.586 )
+rotation = 1.5708
+scale = Vector2( 1.71815, 1.71815 )
+frames = SubResource( 1 )
+frame = 28
+speed_scale = 6.0
+playing = true
+
+[node name="layer7" type="ParallaxLayer" parent="world/background/back"]
+position = Vector2( -112.313, -20.8758 )
+
+[node name="stars" type="AnimatedSprite" parent="world/background/back/layer7"]
+position = Vector2( 528.682, 299.586 )
+rotation = 1.5708
+scale = Vector2( 1.71815, 1.71815 )
+frames = SubResource( 1 )
+frame = 27
+speed_scale = 6.0
+playing = true
+
+[node name="layer8" type="ParallaxLayer" parent="world/background/back"]
+position = Vector2( -102.243, 1821.96 )
+
+[node name="stars" type="AnimatedSprite" parent="world/background/back/layer8"]
+position = Vector2( 528.682, 299.586 )
+rotation = 1.5708
+scale = Vector2( 1.71815, 1.71815 )
+frames = SubResource( 1 )
+frame = 27
+speed_scale = 6.0
+playing = true
+
+[node name="layer9" type="ParallaxLayer" parent="world/background/back"]
+position = Vector2( 2505.92, 1824.48 )
+
+[node name="stars" type="AnimatedSprite" parent="world/background/back/layer9"]
+position = Vector2( 528.682, 299.586 )
+rotation = 1.5708
+scale = Vector2( 1.71815, 1.71815 )
+frames = SubResource( 1 )
+frame = 27
 speed_scale = 6.0
 playing = true
 
