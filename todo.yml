@@ -20,10 +20,6 @@ todo:
   - connections (singleton)
 
 
-  fix files:
-  - chrono-node
-
-
 
 
 done:
@@ -38,6 +34,18 @@ done:
   - log actions (hard)
   - save scene (full) (easy)
   - save res (partial) (less easy, questionable)
+
+
+  fix files:
+  - chrono-node
+  - chrono-tree
+  - pause
+  - test
+  - credits
+  - plan
+  - project
+  - readme
+  - todo
 
 
 
