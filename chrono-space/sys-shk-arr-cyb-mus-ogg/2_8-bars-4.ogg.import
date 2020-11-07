@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/2_8-bars-4.ogg-76517b8e4143577ee6c1527d1025ada1.oggstr"
+
+[deps]
+
+source_file="res://chrono-space/sys-shk-arr-cyb-mus-ogg/2_8-bars-4.ogg"
+dest_files=[ "res://.import/2_8-bars-4.ogg-76517b8e4143577ee6c1527d1025ada1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

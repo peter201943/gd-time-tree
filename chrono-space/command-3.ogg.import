@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/command-3.ogg-cbaa88fe88db8e0d8d2c1bce0d106a1b.oggstr"
+
+[deps]
+
+source_file="res://chrono-space/command-3.ogg"
+dest_files=[ "res://.import/command-3.ogg-cbaa88fe88db8e0d8d2c1bce0d106a1b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
