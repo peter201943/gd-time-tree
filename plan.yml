@@ -1,31 +1,8 @@
 
 
-# https://onezero.medium.com/bloodchild-802bd34ce721
 
 
-Todo:
-
-
-
-
-Done:
-  
-
-  Pull Notes:
-  - 2020-11-02_todo.yml   # done
-  - proc-ui.md            # done
-  - 2020-10-30_peter.yml  # done
-  - 2020-10-27_todo.yml   # done
-
-
-  Fill Readme:
-  - Title
-  - About
-  - Screenshot
-  - Running
-
-
-
+Title: Plan
 
 
 
@@ -434,6 +411,9 @@ misc:
 - title:  How to raise an error with a message?
   url:    https://godotengine.org/qa/29525/how-to-raise-an-error-with-a-message
 
+- title:  Git Overwrite master with branch
+  url:    https://stackoverflow.com/questions/30105210/git-overwrite-master-with-branch
+
 
 
 
@@ -525,6 +505,8 @@ saving:
     notes:
     - tscn versus scn
     - try scn at some point....
+    - scn is COMPRESSED tscn
+    - stored as BINARY, and not TEXT (t="text" in tscn)
 
 
   tres or tscn:
@@ -607,6 +589,100 @@ saving connections:
     notes:
     - check the ffmpeg instructions
     - very useful
+
+
+
+
+
+tracking change:
+- two major ways of tracking changes:
+    1: Save everything each time
+    2: Save only the things that change each time
+- Tracking Everything:
+  - Emphasis on storing references to things
+  - Emphasis on making save as small as possible
+- Tracking Changes:
+  - ADD, REMOVE, CHANGE
+  - this requires us to do a fair bit of engineering within godot, to incrementally edit a scene
+  - but is far more powerful and generic then using custom full-save TRES's
+  - why?
+  - because we dont need to specify it for ecery single new feature we add
+  - this automatically supports whatever we add
+  - we also dont need to worry about the scene appearing particularly cluttered with native assets
+
+
+
+
+next big idea:
+
+
+  parts:
+
+    users:
+    - have a SAVES folder
+    - have USER folders within this folder
+    - each USER is a single playthrough
+    - each USER folder has SAVE files (0.tscn - n.tscn)
+    - each USER folder has one TREE file (tree.tscn)
+    - the TREE stores relationships between SAVEs
+    - this allows per-user ease of management
+    
+    ontology:
+    - save relation of this save with other saves in a separate file
+    - this is called a TREE
+    - why 1 file:
+      - if save ontology in EACH SAVE, will require opening and loading
+      - HUNDREDS of saves
+      - EACH TIME the time-tree needs to be loaded
+      - also makes it harder to modify the ontology if distributed across all these files
+    
+    contents:
+    - each SAVE is either a TRES or a TSCN
+    - each SAVE has 3 CATEGORIES:
+        ADD:  When something new is instantiated into the scene (add this)
+        DROP: When something is removed from the scene (drop this)
+        SUB:  When something changes in the scene (substitute this for this)
+    - if TRES:
+      - does not allow opening natively, will require separate saver/loader
+      - still better than plain JSON (can save native stuff without much boilerplate)
+    - if TSCN:
+      - allows opening the save file in editor natively
+      - will appear as 3 NODES: [add, drop, sub]
+      - each NODE will have instance of referenced SCENE-NODE with applied changes (if SUB)
+    
+    naming:
+    - each SAVE is given an INTEGER name
+    - this name is INCREMENTED per SAVE
+    - the last known SAVE's NAME is saved in the TREE file
+    - (allows ease of adding new saves, as do not need to inspect directory for highest save number)
+
+    applying and removing changes:
+    - will be most sophisticated part of this
+    - need some mechanism that creates scenes from script
+    - can add/remove stuff from reading a TSCN
+
+
+  implementation:
+
+    scene saving:
+    - avoid singletons where possible
+    - instead, have chrono-logger in scene
+    - chrono-logger notices changes to components it is told to watch for (maybe?)
+    - or maybe it notices everything
+    - when make new save, have chrono-logger open tree.tscn and add the new save with child ref's
+
+    ontology representation:
+    - if TSCN, can represent as NODEs within NODES
+    - where each NODE is a SAVE
+    - where the NAME of each NODE is an INTEGER (corresponds with name of SAVE file)
+    - where the CHILDREN of each NODE are the CHILDREN of each SAVE (branch)
+    - now, we can either store a REFERENCE to each save FILE from each NODE
+    - or, we can make part of the time-tree loader a file-fetcher and handler
+
+
+
+
+
 
 
 
