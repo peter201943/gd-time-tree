@@ -819,13 +819,41 @@ next big idea:
 
 
   scenes not files:
-  - we could save all saves as separate SCENES within the PLAYER save....
-  - so, instead of maintaining a directory of separate saves
-  - just put everything on the same node-tree structure
-  - copy the battle scene, make this the root node
-  - OR!
-  - have tree.tscn with tree.gd REFERENCE the battle scene and copy it like that!
-  - (makes an instance on first use of tree/first play)
 
+    one scene:
+    - we could save all saves as separate SCENES within the PLAYER save....
+    - so, instead of maintaining a directory of separate saves
+    - just put everything on the same node-tree structure
+    - copy the battle scene, make this the root node
+    - OR!
+
+    references:
+    - have tree.tscn with tree.gd REFERENCE the battle scene and copy it like that!
+    - (makes an instance on first use of tree/first play)
+    - in that case...
+
+    combine them?:
+    - do we want to make the chrono-space the same as the chrono-tree?
+    - no reason to differentiate them...?
+    - if we have battle (scene) as reference in tree (node)
+    - then we should reference time-tree (scene) from the tree (node) as well
+    - then we can switch between them as we please
+    - soo....
+
+    separate them:
+    - better to have separate chrono-tree and chrono-space
+    - chrono-space generates a UI
+    - chrono-tree is the data the chrono-space uses to generate a UI
+    
+    possible concerns?:
+    - what is the largest tree we can have inside godot?
+    - what is the deepest tree we can have in godot?
+    - https://github.com/godotengine/godot/blob/master/scene/main/node.h
+    - godot uses the C++ Vector<> for children
+    - !cpp |
+        Vector<Node *> children; // list of children
+    - these have a max size of 2305843009213693951 elements
+    - but how *deep* can these go?
+    - how many nodes-within-nodes are we allowed to have?
 
 
