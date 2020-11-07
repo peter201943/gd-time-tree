@@ -763,97 +763,102 @@ next big idea:
 
 
 
-  Logging:
+Logging:
 
 
-    what:
-    - what if we "logged saves"?
-    - what would htis look like?
-    - what already exists?
+  what:
+  - what if we "logged saves"?
+  - what would htis look like?
+  - what already exists?
 
 
-    terms:
-    - unity incremental saves
-    - godot logging
-    - godot scene logging
-    - unity scene logging
-    - godot save to stream
-    - unity streaming saves
-    - godot streaming scenes
-    - godot log to tscn
-    - godot log to tres
+  terms:
+  - unity incremental saves
+  - godot logging
+  - godot scene logging
+  - unity scene logging
+  - godot save to stream
+  - unity streaming saves
+  - godot streaming scenes
+  - godot log to tscn
+  - godot log to tres
 
 
-    questions:
-    - what does streaming to/from tscn/tres/json look like?
-    - what has been tried in the past?
-    - "gron", a regex-like for JSON, converts the json into this: !python |
-        foo = {}
-        foo.bar = "baz"
-        foo.baz = []
-        foo.baz[0] = 1
+  questions:
+  - what does streaming to/from tscn/tres/json look like?
+  - what has been tried in the past?
+  - "gron", a regex-like for JSON, converts the json into this: !python |
+      foo = {}
+      foo.bar = "baz"
+      foo.baz = []
+      foo.baz[0] = 1
 
 
-    refs:
-    - title:    SirDB
-      url:      https://github.com/c9fe/sirdb
-      status:   INC
-      comments: https://news.ycombinator.com/item?id=25004554
-      notes:
-      - check the HackerNews comments
+  refs:
+  - title:    SirDB
+    url:      https://github.com/c9fe/sirdb
+    status:   INC
+    comments: https://news.ycombinator.com/item?id=25004554
+    notes:
+    - check the HackerNews comments
 
-    - title:    Mendoza - The totally non-human readable diff format for structured JSON documents
-      url:      https://www.sanity.io/blog/mendoza
-      status:   INC
-      comments: https://news.ycombinator.com/item?id=24943775
-      notes:
-      - interesting, turning JSON navigation into a state-machine
+  - title:    Mendoza - The totally non-human readable diff format for structured JSON documents
+    url:      https://www.sanity.io/blog/mendoza
+    status:   INC
+    comments: https://news.ycombinator.com/item?id=24943775
+    notes:
+    - interesting, turning JSON navigation into a state-machine
 
-    - title:    JavaScript Object Notation (JSON) Patch
-      url:      https://tools.ietf.org/html/rfc6902
-      status:   INC
-      notes:
-      - seems horribly verbose for some fairly basic operations
-
-
+  - title:    JavaScript Object Notation (JSON) Patch
+    url:      https://tools.ietf.org/html/rfc6902
+    status:   INC
+    notes:
+    - seems horribly verbose for some fairly basic operations
 
 
-  scenes not files:
 
-    one scene:
-    - we could save all saves as separate SCENES within the PLAYER save....
-    - so, instead of maintaining a directory of separate saves
-    - just put everything on the same node-tree structure
-    - copy the battle scene, make this the root node
-    - OR!
 
-    references:
-    - have tree.tscn with tree.gd REFERENCE the battle scene and copy it like that!
-    - (makes an instance on first use of tree/first play)
-    - in that case...
+scenes not files:
 
-    combine them?:
-    - do we want to make the chrono-space the same as the chrono-tree?
-    - no reason to differentiate them...?
-    - if we have battle (scene) as reference in tree (node)
-    - then we should reference time-tree (scene) from the tree (node) as well
-    - then we can switch between them as we please
-    - soo....
 
-    separate them:
-    - better to have separate chrono-tree and chrono-space
-    - chrono-space generates a UI
-    - chrono-tree is the data the chrono-space uses to generate a UI
-    
-    possible concerns?:
-    - what is the largest tree we can have inside godot?
-    - what is the deepest tree we can have in godot?
-    - https://github.com/godotengine/godot/blob/master/scene/main/node.h
-    - godot uses the C++ Vector<> for children
-    - !cpp |
-        Vector<Node *> children; // list of children
-    - these have a max size of 2305843009213693951 elements
-    - but how *deep* can these go?
-    - how many nodes-within-nodes are we allowed to have?
+  one scene:
+  - we could save all saves as separate SCENES within the PLAYER save....
+  - so, instead of maintaining a directory of separate saves
+  - just put everything on the same node-tree structure
+  - copy the battle scene, make this the root node
+  - OR!
+
+
+  references:
+  - have tree.tscn with tree.gd REFERENCE the battle scene and copy it like that!
+  - (makes an instance on first use of tree/first play)
+  - in that case...
+
+
+  combine them?:
+  - do we want to make the chrono-space the same as the chrono-tree?
+  - no reason to differentiate them...?
+  - if we have battle (scene) as reference in tree (node)
+  - then we should reference time-tree (scene) from the tree (node) as well
+  - then we can switch between them as we please
+  - soo....
+
+
+  separate them:
+  - better to have separate chrono-tree and chrono-space
+  - chrono-space generates a UI
+  - chrono-tree is the data the chrono-space uses to generate a UI
+
+  
+  possible concerns?:
+  - what is the largest tree we can have inside godot?
+  - what is the deepest tree we can have in godot?
+  - https://github.com/godotengine/godot/blob/master/scene/main/node.h
+  - godot uses the C++ Vector<> for children
+  - !cpp |
+      Vector<Node *> children; // list of children
+  - these have a max size of 2305843009213693951 elements
+  - but how *deep* can these go?
+  - how many nodes-within-nodes are we allowed to have?
 
 
