@@ -1,13 +1,6 @@
 
 
-
-
-# Plan
-
-
-
-
-## WARNING
+# WARNING
 - this is a super WIP document, do not read it verbatim
 - these are Peter's various thoughts, taken from YAML and converted to Markdown
 
