@@ -5,19 +5,22 @@
 todo:
 
 
-  separate time travel:
-  - make time travel separate from all other components in scene
-  - make "Chrono-Trigger" element for any generic scene
-  - embed as child, listen for "Page-Up" event
-  - also listen for CONTEXT, know when can be activated
-  - handles saving on its own
-  - handles exiting/switching on its own
-  - must be a scene (refs to resources)
+  mock-up changelog style saves:
+  - tree.tscn + tree.gd
+  - change.tscn + change.gd
+
+
+  user folder or user scene:
+  - could save all saves as separate files
+  - OR....
+  - we could save all saves as separate SCENES within the PLAYER save....
+  - hmmm....
+  - me gusta...
 
 
   implement saving:
   - scene
-  - connections (singleton)
+  - connections (singleton?)
 
 
 
@@ -60,6 +63,21 @@ done:
   - About
   - Screenshot
   - Running
+
+
+  separate time travel:
+  - make time travel separate from all other components in scene
+  - make "Chrono-Trigger" element for any generic scene
+  - embed as child, listen for "Page-Up" event
+  - also listen for CONTEXT, know when can be activated
+  - handles saving on its own
+  - handles exiting/switching on its own
+  - must be a scene (refs to resources)
+
+
+  design save system:
+  - scenes
+  - connections
 
 
 

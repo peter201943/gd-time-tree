@@ -818,6 +818,14 @@ next big idea:
 
 
 
+  scenes not files:
+  - we could save all saves as separate SCENES within the PLAYER save....
+  - so, instead of maintaining a directory of separate saves
+  - just put everything on the same node-tree structure
+  - copy the battle scene, make this the root node
+  - OR!
+  - have tree.tscn with tree.gd REFERENCE the battle scene and copy it like that!
+  - (makes an instance on first use of tree/first play)
 
 
 
