@@ -401,18 +401,43 @@ misc:
 
 - title:  Arrow Symbols
   url:    https://unicode-table.com/en/sets/arrow-symbols/
+  notes:
+  - handy for documentation purposes
 
 - title:  GDScript exports
   url:    https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_exports.html
+  notes:
+  - use these!!!!!
 
 - title:  List of export hints
   url:    https://godotengine.org/qa/6099/list-of-export-hints
 
 - title:  How to raise an error with a message?
   url:    https://godotengine.org/qa/29525/how-to-raise-an-error-with-a-message
+  notes:
+  - push_error("message")
+  - push_warning("message")
+  - assert(condition, "message")
 
 - title:  Git Overwrite master with branch
   url:    https://stackoverflow.com/questions/30105210/git-overwrite-master-with-branch
+
+- title:    My character and toon shader are now starting to come along! (more details in comments)
+  url:      https://www.reddit.com/r/godot/comments/jpkcox/my_character_and_toon_shader_are_now_starting_to/
+  status:   INC
+  notes:
+  - its a guide, complete with code and shader-graph
+
+- title:    Keeping my objective of using godot as an art framework
+  url:      https://www.reddit.com/r/godot/comments/jpf3zj/keeping_my_objective_of_using_godot_as_an_art/
+  notes:
+  - use this for drawing the time-tree!
+  - it looks pretty!
+
+- title:    How to properly navigate Godots Scene tree programmatically
+  url:      https://www.reddit.com/r/godot/comments/bwe5i4/how_to_properly_navigate_godots_scene_tree/
+  notes:
+  - handy for others, esp non-coders as to why some things arent working
 
 
 
@@ -679,8 +704,116 @@ next big idea:
     - now, we can either store a REFERENCE to each save FILE from each NODE
     - or, we can make part of the time-tree loader a file-fetcher and handler
 
+  
+  new names:
+    
+    not enough to have all these "trees":
+      chrono-tree:  the SPACE a player navigates around in
+      tree.tscn:    the ONTOLOGY of saves a user makes
+      "*save.tscn": the COLLECTION of saves that populate a time-tree
+    
+    from here on out, use these terms:
+      
+      chrono-space:
+        type:     scene
+        purpose:  PLAY
+        relationships:
+        - LOADS: chrono-tree
+        - USED-BY: player
+        description:
+        - the procedurally-generated user-interface to the structure of saves
+        - player moves around on rails in here
+        - various time-effects, gameplay happens
+        elements:
+          canvas: Cool background for player to move across
+          player: a cursor the player moves around the canvas
+          nodes:
+          - each save file is drawn as one of these
+          - player can "enter" or "exit" these
+          paths:
+          - generated and drawn between nodes
+          - player moves along these
+          - this is where primary gameplay in this scene resides
+      
+      chrono-tree:
+        type:     SCENE
+        purpose:  DATA
+        relationships:
+        - USED-BY: chrono-space
+        - TRACKS: chrono-saves
+        - PLAYER: creates this through battle-gameplay
+        description:
+        elements:
+          last-id:  INTEGER of last save game (what to use as NEXT save NAME)
+          tree:     NODE-TREE of saves and their relationships
+      
+      chrono-save:
+        type:     SCENE
+        purpose:  DATA
+        relationships:
+        - USED-BY: chrono-tree
+        description:
+        - the differences between battle-scene
+        elements:
+          add:  NEW items to add
+          drop: OLD items to remove
+          sub:  OLD items to replace, change of mesh, etc
 
 
+
+
+
+  Logging:
+
+
+    what:
+    - what if we "logged saves"?
+    - what would htis look like?
+    - what already exists?
+
+
+    terms:
+    - unity incremental saves
+    - godot logging
+    - godot scene logging
+    - unity scene logging
+    - godot save to stream
+    - unity streaming saves
+    - godot streaming scenes
+    - godot log to tscn
+    - godot log to tres
+
+
+    questions:
+    - what does streaming to/from tscn/tres/json look like?
+    - what has been tried in the past?
+    - "gron", a regex-like for JSON, converts the json into this: !python |
+        foo = {}
+        foo.bar = "baz"
+        foo.baz = []
+        foo.baz[0] = 1
+
+
+    refs:
+    - title:    SirDB
+      url:      https://github.com/c9fe/sirdb
+      status:   INC
+      comments: https://news.ycombinator.com/item?id=25004554
+      notes:
+      - check the HackerNews comments
+
+    - title:    Mendoza - The totally non-human readable diff format for structured JSON documents
+      url:      https://www.sanity.io/blog/mendoza
+      status:   INC
+      comments: https://news.ycombinator.com/item?id=24943775
+      notes:
+      - interesting, turning JSON navigation into a state-machine
+
+    - title:    JavaScript Object Notation (JSON) Patch
+      url:      https://tools.ietf.org/html/rfc6902
+      status:   INC
+      notes:
+      - seems horribly verbose for some fairly basic operations
 
 
 

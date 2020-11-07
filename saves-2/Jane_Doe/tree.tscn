@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="tree" type="Node"]
+
+[node name="0" type="Node" parent="."]
+
+[node name="2" type="Node" parent="0"]
+
+[node name="3" type="Node" parent="0"]
+
+[node name="4" type="Node" parent="0/3"]
+
+[node name="1" type="Node" parent="."]
+
+[node name="5" type="Node" parent="1"]
+
+[node name="6" type="Node" parent="1/5"]
+
+[node name="7" type="Node" parent="1/5/6"]
+
+[node name="9" type="Node" parent="1/5/6/7"]
+
+[node name="8" type="Node" parent="1/5/6"]
